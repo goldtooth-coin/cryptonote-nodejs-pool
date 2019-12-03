@@ -1,18 +1,18 @@
 {
     "poolHost": "your.pool.host",
 
-    "coin": "wownero",
-    "symbol": "WOW",
-    "coinUnits": 100000000000,
-    "coinDecimalPlaces": 4,
-    "coinDifficultyTarget": 300,
+    "coin": "Arqma",
+    "symbol": "ARQ",
+    "coinUnits": 1000000000,
+    "coinDecimalPlaces": 9,
+    "coinDifficultyTarget": 120,
+    "blockchainExplorer": "http://blockexplorer.arqma.com/block/{id}",
+    "transactionExplorer": "http://blockexplorer.arqma.com/tx/{id}",
 
     "daemonType": "default",
-    "cnAlgorithm": "random_wow",
-    "cnVariant": 17,
+    "cnAlgorithm": "cryptonight_pico",
+    "cnVariant": 2,
     "cnBlobType": 0,
-    "includeHeight": false,
-    "isRandomX": true,
 
     "logging": {
         "files": {
@@ -25,53 +25,133 @@
             "colors": true
         }
     },
-
+    "childPools" : [{"poolAddress":"** Your pool wallet address **",
+                     "intAddressPrefix": null,
+                     "coin": "CyprusCoin",
+                     "childDaemon": {
+                            "host": "1.2.3.4",
+                            "port": 11975
+                       },
+                     "pattern": "^XCY",
+                     "blockchainExplorer": "http://explorer.mycypruscoin.com/?hash={id}#blockchain_block",
+                     "transactionExporer": "http://explorer.mycypruscoin.com/?hash={id}#blockchain_transaction",
+                     "api": "https://your.pool.host/apiMerged1",
+                     "enabled": true
+                    },
+                     {"poolAddress":"** Your pool wallet address **",
+                     "intAddressPrefix": null,
+                     "coin": "Turtlecoin",
+                     "childDaemon": {
+                            "host": "1.2.3.4",
+                            "port": 11898
+                       },
+                     "pattern": "^TRTL",
+                     "blockchainExplorer": "https://explorer.turtlecoin.lol/block.html?hash={id}",
+                     "transactionExporer": "https://explorer.turtlecoin.lol/block.html?hash={id}",
+                     "api": "https://your.pool.host/apiMerged2",
+                     "enabled": true
+                    },
+                     {"poolAddress":"** Your pool wallet address **",
+                     "intAddressPrefix": null,
+                     "coin": "Plenteum",
+                     "childDaemon": {
+                            "host": "1.2.3.4",
+                            "port": 44016
+                       },
+                     "pattern": "^Pl",
+                     "blockchainExplorer": "http://block-explorer.plenteum.com/?hash={id}#blockchain_block",
+                     "transactionExporer": "http://block-explorer.plenteum.com/?hash={id}#blockchain_transaction",
+                     "api": "https://your.pool.host/apiMerged3",
+                     "enabled": true
+                    },
+                     {"poolAddress":"** Your pool wallet address **",
+                     "intAddressPrefix": null,
+                     "coin": "Iridium",
+                     "childDaemon": {
+                            "host": "1.2.3.4",
+                            "port": 13007
+                       },
+                     "pattern": "^ir",
+                     "blockchainExplorer": "http://explorer.ird.cash/?hash={id}#block",
+                     "transactionExporer": "http://explorer.ird.cash/?hash={id}#transaction",
+                     "api": "https://your.pool.host/apiMerged4",
+                     "enabled": true
+                    },
+                     {"poolAddress":"** Your pool wallet address **",
+                     "intAddressPrefix": null,
+                     "coin": "Tritanium",
+                     "childDaemon": {
+                            "host": "1.2.3.4",
+                            "port": 16123
+                       },
+                     "pattern": "^Tri",
+                     "blockchainExplorer": "http://www.tritaniumcoin.com/?hash={id}#blockchain_block",
+                     "transactionExporer": "http://www.tritaniumcoin.com/?hash={id}#blockchain_transaction",
+                     "api": "https://your.pool.host/apiMerged5",
+                     "enabled": true
+                    },
+                     {"poolAddress":"** Your pool wallet address **",
+                     "intAddressPrefix": null,
+                     "coin": "WrkzCoin",
+                     "childDaemon": {
+                            "host": "1.2.3.4",
+                            "port": 17856
+                       },
+                     "pattern": "^Wrkz",
+                     "blockchainExplorer": "http://myexplorer.wrkz.work/?hash={id}#blockchain_block",
+                     "transactionExporer": "http://myexplorer.wrkz.work/?hash={id}#blockchain_transaction",
+                     "api": "https://your.pool.host/apiMerged6",
+                     "enabled": true
+                    },
+                     {"poolAddress":"** Your pool wallet address **",
+                     "intAddressPrefix": null,
+                     "coin": "Elphyrecoin2",
+                     "childDaemon": {
+                            "host": "1.2.3.4",
+                            "port": 45501
+                       },
+                     "pattern": "^Phy",
+                     "blockchainExplorer": "http://explorer2.elphyrecoin.xyz/?hash={id}#blockchain_block",
+                     "transactionExporer": "http://explorer2.elphyrecoin.xyz/?hash={id}#blockchain_transaction",
+                     "api": "https://your.pool.host/apiMerged7",
+                     "enabled": true
+                    }
+    ],  
     "poolServer": {
         "enabled": true,
-        "clusterForks": "auto",
-        "poolAddress": "Your pool wallet address",
-        "intAddressPrefix": 19,
+        "mergedMining": true,
+        "clusterForks": 5,
+        "poolAddress": "** Your pool wallet address **",
+        "intAddressPrefix": 1141703,
         "blockRefreshInterval": 1000,
         "minerTimeout": 900,
-        "sslCert": "./cert.pem",
-        "sslKey": "./privkey.pem",
-        "sslCA": "./chain.pem",
+        "sslCert": "cert.pem",
+        "sslKey": "privkey.pem",
+        "sslCA": "chain.pem",
         "ports": [
             {
-                "port": 4333,
+                "port": 1444,
                 "difficulty": 5000,
                 "desc": "Low end hardware"
             },
             {
-                "port": 4444,
-                "difficulty": 15000,
+                "port": 2444,
+                "difficulty": 50000,
                 "desc": "Mid range hardware"
             },
             {
-                "port": 4555,
-                "difficulty": 25000,
-                "desc": "High end hardware"
-            },
-            {
-                "port": 4777,
+                "port": 3444,
                 "difficulty": 500000,
-		"hidden": true,
-                "desc": "Cloud-mining / NiceHash"
-            },
-            {
-                "port": 4888,
-                "difficulty": 25000,
-                "desc": "Hidden port",
-                "hidden": true
+                "desc": "High end hardware"
             }
         ],
         "varDiff": {
-            "minDiff": 100,
-            "maxDiff": 1000000,
-            "targetTime": 60,
-            "retargetTime": 30,
+            "minDiff": 500,
+            "maxDiff": 100000000,
+            "targetTime": 45,
+            "retargetTime": 40,
             "variancePercent": 30,
-            "maxJump": 100
+            "maxJump": 60
         },
         "paymentId": {
             "addressSeparator": "+"
@@ -103,60 +183,60 @@
 
     "payments": {
         "enabled": true,
-        "interval": 1800,
-        "maxAddresses": 50,
-        "mixin": 16,
+        "interval": 900,
+        "maxAddresses": 5,
+        "mixin": 6,
         "priority": 0,
-        "transferFee": 14000000000,
+        "transferFee": 10000000,
         "dynamicTransferFee": true,
         "minerPayFee" : true,
-        "minPayment": 1000000000000,
+        "minPayment": 1000000000,
         "maxPayment": null,
-        "maxTransactionAmount": 0,
-        "denomination": 100000000000
+        "maxTransactionAmount": 100000000000,
+        "denomination": 1000000000
     },
 
     "blockUnlocker": {
         "enabled": true,
         "interval": 30,
-        "depth": 60,
-        "poolFee": 2.0,
-        "devDonation": 0.2,
+        "depth": 18,
+        "poolFee": 0.5,
+        "devDonation": 0,
         "networkFee": 0.0
     },
 
     "api": {
         "enabled": true,
         "hashrateWindow": 600,
-        "updateInterval": 5,
-        "bindIp": "0.0.0.0",
-        "port": 34558,
+        "updateInterval": 60,
+        "bindIp": "127.0.0.1",
+        "port": 8217,
         "blocks": 30,
         "payments": 30,
-        "password": "your_password",
+        "password": "password",
         "ssl": false,
         "sslPort": 8119,
-        "sslCert": "./cert.pem",
-        "sslKey": "./privkey.pem",
-        "sslCA": "./chain.pem",
+        "sslCert": "cert.pem",
+        "sslKey": "privkey.pem",
+        "sslCA": "chain.pem",
         "trustProxyIP": true
     },
 
     "daemon": {
         "host": "127.0.0.1",
-        "port": 34568
+        "port": 19994
     },
 
     "wallet": {
-        "host": "127.0.0.1",
-        "port": 39578
+        "host": "1.2.3.4",
+        "port": 19996
     },
 
     "redis": {
-        "host": "127.0.0.1",
+        "host": "1.2.3.4",
         "port": 6379,
         "auth": null,
-        "db": 0,
+        "db": 10,
         "cleanupInterval": 15
     },
 
@@ -234,7 +314,7 @@
             "blocks": "/blocks"
         }
     },
-    
+
     "monitoring": {
         "daemon": {
             "checkInterval": 60,
@@ -250,32 +330,32 @@
         "source": "tradeogre",
         "currency": "USD"
     },
-    
+
     "charts": {
         "pool": {
             "hashrate": {
                 "enabled": true,
-                "updateInterval": 10,
-                "stepInterval": 600,
-                "maximumPeriod": 3600
+                "updateInterval": 60,
+                "stepInterval": 1800,
+                "maximumPeriod": 86400
             },
             "miners": {
                 "enabled": true,
-                "updateInterval": 10,
-                "stepInterval": 600,
-                "maximumPeriod": 3600
+                "updateInterval": 60,
+                "stepInterval": 1800,
+                "maximumPeriod": 86400
             },
             "workers": {
                 "enabled": true,
-                "updateInterval": 10,
-                "stepInterval": 6000,
-                "maximumPeriod": 3600
+                "updateInterval": 60,
+                "stepInterval": 1800,
+                "maximumPeriod": 86400
             },
             "difficulty": {
                 "enabled": true,
-                "updateInterval": 10,
-                "stepInterval": 600,
-                "maximumPeriod": 3600
+                "updateInterval": 1800,
+                "stepInterval": 10800,
+                "maximumPeriod": 604800
             },
             "price": {
                 "enabled": true,
@@ -313,3 +393,4 @@
         }
     }
 }
+      
